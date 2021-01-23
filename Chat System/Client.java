@@ -147,7 +147,8 @@ public class ChatClient extends Application implements Runnable {
     try {
       int port = Integer.parseInt(this.port);
       socket = new Socket(host, port);
-      out = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), "ISO-8859-1"), true); in =new BufferedReader(new InputStreamReader(socket.getInputStream()));
+      out = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), "ISO-8859-1"), true); 
+      in =new BufferedReader(new InputStreamReader(socket.getInputStream()));
       Thread thread = new Thread(this);
       thread.start();
     } catch(UnknownHostException e) {
