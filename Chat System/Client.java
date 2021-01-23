@@ -153,7 +153,7 @@ public class ChatClient extends Application implements Runnable {
     } catch(UnknownHostException e) {
       e.printStackTrace();
     } catch(IOException e) {
-      Alert alert = new Alert(AlertType.ERROR, "The client failed to connect to the server", ButtonType.CLOSE);
+      Alert alert = new Alert(AlertType.ERROR, "The client failed", ButtonType.CLOSE);
       alert.showAndWait();
       System.exit(0);
     }
