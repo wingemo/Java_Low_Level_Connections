@@ -11,9 +11,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 /**
- * The Class ChatServer.
+ * The Class Server.
  */
-public class ChatServer extends Application implements Runnable {
+public class Server extends Application implements Runnable {
 
   /** The primary stage. */
   private Stage primaryStage;
