@@ -49,7 +49,6 @@ public class ChatServer extends Application implements Runnable {
 
   }
 
-
   /**
    * Start.
    *
@@ -72,7 +71,6 @@ public class ChatServer extends Application implements Runnable {
 
   }
 
-
   /**
    * Args input.
    */
@@ -85,7 +83,6 @@ public class ChatServer extends Application implements Runnable {
       }
     }
   }
-
 
   /**
    * Stage config.
@@ -102,7 +99,6 @@ public class ChatServer extends Application implements Runnable {
 
   }
 
-
   /**
    * Adds the ui components.
    */
@@ -118,7 +114,6 @@ public class ChatServer extends Application implements Runnable {
   private void setTitle() {
     primaryStage.setTitle(port + " " + clients);
   }
-
 
   /**
    * Client add.
