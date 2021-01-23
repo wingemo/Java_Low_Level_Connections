@@ -1,6 +1,3 @@
-/*
- * 
- */
 import java.awt.Point;
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -26,7 +23,6 @@ public class ReceivingMessage implements Runnable {
  	/** The t. */
  	private Thread t = new Thread(this);
 	 
-	  
 	 /**
  	 * Instantiates a new receiving message.
  	 *
