@@ -178,5 +178,3 @@ public class Server extends Application implements Runnable {
     }
 
   }
-
-
