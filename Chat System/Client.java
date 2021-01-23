@@ -116,7 +116,7 @@ public class ChatClient extends Application implements Runnable {
   private void stageConfig() {
     root = new BorderPane();
     scene = new Scene(root, 300, 300);
-    primaryStage.setTitle("IP: " + this.host + " - PORT: " + this.port);
+    primaryStage.setTitle(this.host + this.port);
     primaryStage.setScene(scene);
     primaryStage.show();
   }
