@@ -4,7 +4,6 @@ import java.net.Socket;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Stack;
-
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;
