@@ -1,0 +1,112 @@
+﻿@{
+    ViewBag.Title = "Datamanipulering";
+}
+    <font face="verdana">
+
+        <div style="float:left; margin-top:1%;">
+            <h3>Oregaliens</h3>
+
+            <!-- Skriver ut data från tabellen Aliens och Oregaliens -->
+            <table border="1">
+                <tr>
+                    @foreach (var dataColumn in ViewBag.AlienTable.Columns)
+                    {
+                        <th>@dataColumn.ColumnName</th>
+                    }
+                </tr>
+                @foreach (var row in ViewBag.AlienTable.Rows)
+                {
+                    <tr>
+                        @for (int i = 0; i < ViewBag.AlienTable.Columns.Count; ++i)
+                        {
+                            <td>@row[i]</td>
+                        }
+                    </tr>
+                }
+            </table>
+            <br />
+            <!-- Skriver ut html form -->
+            <form method="post" action="@Url.Action("InsertAlien", "Home")">
+                <fieldset>
+                    <legend>Insert - Oregaliens</legend>
+                    <label>NAMN: <input type="text" name="namn"></label><p></p>
+                    <label>IDKod: <input type="text" name="IDKod"></label><p></p>
+                    <label>ID_Kod: <input type="text" name="ID_Kod"></label><p></p>
+                    <label>farlighetKod: <input type="text" name="farlighetKod"></label><p></p>
+                    <label>Ras: <input type="text" name="RAS"></label><p></p>
+                    <input type="submit" value="Insert" />
+                </fieldset>
+            </form>
+        </div>
+
+        <div style="float:right; margin-right: 60%; border-style: solid; padding: 10px; margin-top: 60px" background: White; padding: 10px;>
+            <h3>Farlighet - Farlighetskod</h3>
+            <table>
+                <tr>
+                    @foreach (var dataColumn in ViewBag.FarlighetTable.Columns)
+                    {
+                        <th>@dataColumn.ColumnName</th>
+                    }
+                </tr>
+                @foreach (var customerRow in ViewBag.FarlighetTable.Rows)
+                {
+                    <tr>
+                        @for (int i = 0; i < ViewBag.FarlighetTable.Columns.Count; ++i)
+                        {
+                            <td>@customerRow[i]</td>
+                        }
+                    </tr>
+                }
+            </table>
+
+        </div>
+        </div>
+
+
+        <!-- Skriver ut data från tabellen Skepp -->
+        <div style="margin-top: -240px; float:right; margin-right: 30%">
+            <h2>Skepp</h2>
+            <table border="1">
+                <tr>
+                    @foreach (var dataColumn in ViewBag.SkeppTable.Columns)
+                    {
+                        <th>@dataColumn.ColumnName</th>
+                    }
+                </tr>
+                @foreach (var customerRow in ViewBag.SkeppTable.Rows)
+                {
+                    <tr>
+                        @for (int i = 0; i < ViewBag.SkeppTable.Columns.Count; ++i)
+                        {
+                            <td>@customerRow[i]</td>
+                        }
+                    </tr>
+                }
+            </table>
+            <br />
+
+            <!-- Skriver ut html form -->
+            <form method="post" action="@Url.Action("UpdateSkepp", "Home")" style="width:370px">
+                <fieldset>
+                    <legend>Update - Skepp</legend>
+                    <label>ID: <input type="text" name="ID"></label><p></p>
+                    <label>SITTPLATSER: <input type="text" name="SITTPLATSER"></label><p></p>
+                    <label>
+                        TILLVERKARE:
+                        <select name="TILLVERKATKOD">
+                            @foreach (var tt in ViewBag.TillverkareTable.Rows)
+                            {
+                                <option value="@tt["TILLVERKATKOD"]">@tt["TILLVERKAT"]</option>
+                            }
+                        </select>
+                    </label><p></p>
+
+
+                    <input type="submit" value="Update" />
+                </fieldset>
+            </form>
+        </div>
+
+    </font>
+
+
