@@ -3,7 +3,6 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Stack;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;
@@ -12,9 +11,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 /**
- * The Class Server.
+ * The Class ChatServer.
  */
-public class Server extends Application implements Runnable {
+public class ChatServer extends Application implements Runnable {
 
   /** The primary stage. */
   private Stage primaryStage;
@@ -41,20 +40,21 @@ public class Server extends Application implements Runnable {
   private String port;
 
   /**
-	 * The main method.
-	 *
-	 * @param args the arguments
-	 */
+   * The main method.
+   *
+   * @param args the arguments
+   */
   public static void main(String[] args) {
     launch(args);
 
   }
 
+
   /**
-	 * Start.
-	 *
-	 * @param primaryStage the primary stage
-	 */
+   * Start.
+   *
+   * @param primaryStage the primary stage
+   */
   @Override
   public void start(Stage primaryStage) {
     Thread thread = new Thread(this);
@@ -72,9 +72,10 @@ public class Server extends Application implements Runnable {
 
   }
 
+
   /**
-	 * Args input.
-	 */
+   * Args input.
+   */
   public void argsInput() {
     try {
       this.port = getParameters().getUnnamed().get(0);
@@ -85,9 +86,10 @@ public class Server extends Application implements Runnable {
     }
   }
 
+
   /**
-	 * Stage config.
-	 */
+   * Stage config.
+   */
   private void stageConfig() {
     root = new BorderPane();
     scene = new Scene(root, 450, 300);
@@ -100,24 +102,29 @@ public class Server extends Application implements Runnable {
 
   }
 
+
   /**
-	 * Gui config.
-	 */
+   * Adds the ui components.
+   */
   private void addUiComponents() {
     display = new TextArea();
     display.setEditable(false);
     root.setCenter(display);
   }
 
+  /**
+   * Sets the title.
+   */
   private void setTitle() {
     primaryStage.setTitle(port + " " + clients);
   }
 
+
   /**
-	 * Client add.
-	 *
-	 * @param clientSocket the client socket
-	 */
+   * Client add.
+   *
+   * @param clientSocket the client socket
+   */
   public void clientAdd(Socket clientSocket) {
     ChatClient client = new ChatClient(clientSocket, this);
     hashSet.add(client);
@@ -125,10 +132,11 @@ public class Server extends Application implements Runnable {
   }
 
   /**
-	 * Broadcast.
-	 *
-	 * @param client the client
-	 */
+   * Delete.
+   *
+   * @param client the client
+   * @param str the str
+   */
   public synchronized void delete(ChatClient client, String str) {
     hashSet.remove(client);
     client = null;
@@ -142,10 +150,10 @@ public class Server extends Application implements Runnable {
   }
 
   /**
-	 * Broadcast.
-	 *
-	 * @param str the str
-	 */
+   * Send.
+   *
+   * @param str the str
+   */
   public synchronized void send(String str) {
     display.appendText("\n" + str);
     Iterator < ChatClient > iterator = hashSet.iterator();
@@ -156,8 +164,8 @@ public class Server extends Application implements Runnable {
   }
 
   /**
-	 * Run.
-	 */
+   * Run.
+   */
   @Override
   public void run() {
     while (true) {
@@ -176,4 +184,4 @@ public class Server extends Application implements Runnable {
 
   }
 
-}
+
