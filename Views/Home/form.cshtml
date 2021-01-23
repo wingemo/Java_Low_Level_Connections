@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Search result";
+}
+
+<form method="post" action="@Url.Action("form", "Home")" style="margin-top:3%;">
+    <label>
+        Namn:
+        <input type="text" name="name" value=""  />
+    </label>
+    <input type="submit" value="Sök" />
+</form>
+
+
+
+@if (ViewBag.OregalienTable != null && ((System.Data.DataTable)ViewBag.OregalienTable).Rows.Count > 0)
+{
+    <table>
+        <tr>
+            @foreach (var dataColumn in ViewBag.OregalienTable.Columns)
+            {
+                <th>@dataColumn.ColumnName</th>
+            }
+        </tr>
+        @foreach (var row in ViewBag.OregalienTable.Rows)
+        {
+            <tr>
+                @for (int i = 0; i < ViewBag.OregalienTable.Columns.Count; ++i)
+                {
+                    <td>@row[i]</td>
+
+                }
+
+                <td>@Html.ActionLink("Delete", "Delete", "Home", new { id = row["IDKod"] }, new { title = "" + row["IDKod"] })</td>
+
+            </tr>
+        }
+    </table>
+}
+else
+{
+    
+}
