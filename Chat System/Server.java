@@ -13,9 +13,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 /**
- * The Class ChatClient.
+ * The Class Server.
  */
-public class ChatServer extends Application implements Runnable {
+public class Server extends Application implements Runnable {
 
 	/** The primary stage. */
 	private Stage primaryStage;
@@ -92,7 +92,7 @@ public class ChatServer extends Application implements Runnable {
 	private void stageConfig() {
 		root = new BorderPane();
 		scene = new Scene(root, 450, 300);
-		primaryStage.setTitle("XSERVER - IP: " + "127.0.0.1" + " - PORT: " + port + " - CLIENTS: " + clients);
+		primaryStage.setTitle(port + " " +clients);
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		primaryStage.setOnCloseRequest(event -> {
@@ -107,13 +107,11 @@ public class ChatServer extends Application implements Runnable {
 	private void addUiComponents() {
 		display = new TextArea();
 		display.setEditable(false);
-		display.appendText("SERVER: THE SERVER IS READY TO RECEIVE REQUESTS!");
-		display.appendText("\n-------------------------------------------------------------");
 		root.setCenter(display);
 	}
 
 	private void setTitle() {
-		primaryStage.setTitle("XSERVER - IP: " + "127.0.0.1" + " - PORT: " + port + " - CLIENTS: " + clients);
+		primaryStage.setTitle(port + " " +clients);
 	}
 
 	/**
