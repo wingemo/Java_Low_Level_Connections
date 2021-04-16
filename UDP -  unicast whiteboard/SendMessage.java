@@ -39,8 +39,8 @@ public class SendMessage {
 			DatagramSocket socket = new DatagramSocket();
 			InetAddress ipAdress = InetAddress.getByName(ip);  
 			String data = Integer.toString(point.x) + " " + Integer.toString(point.y);
-		    byte[] bytes = data.getBytes();
-		    DatagramPacket packet = new DatagramPacket(bytes, bytes.length, ipAdress, port);  
+		        byte[] bytes = data.getBytes();
+		        DatagramPacket packet = new DatagramPacket(bytes, bytes.length, ipAdress, port);  
 			socket.send(packet);
 		} catch (SocketException e) {
 			// TODO Auto-generated catch block
